@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { Phone, MapPin, Mail, MessageCircle } from "lucide-react";
 import TrustBadge from "@/components/TrustBadge";
 import ContactMap from "@/components/ContactMap";
