@@ -103,5 +103,13 @@
   "track_now": "Track Now",
   "not_found": "No application found. Please check your details and try again.",
   "client_name": "Applicant",
-  "contact_office_for_update": "For detailed updates, please contact our office."
+  "contact_office_for_update": "For detailed updates, please contact our office.",
+  "demo_only": "Demo Only",
+  "admin_panel": "Admin Panel",
+  "admin_intro": "Select a client and update the stage of their visa process. Changes appear instantly on the /track page.",
+  "select_client": "Select Client",
+  "current_stage": "Current Stage",
+  "update_to_stage": "Update To Stage",
+  "update": "Update",
+  "updated": "Updated"
 }
