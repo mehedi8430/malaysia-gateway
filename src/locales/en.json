@@ -84,5 +84,18 @@
   "job_desc_j3": "Clean and maintain guest rooms and public areas to hotel standards with attention to detail and guest satisfaction.",
   "job_desc_j4": "Perform general construction tasks such as lifting materials, operating basic hand tools, and supporting site teams.",
   "job_desc_j5": "Operate palm oil mill machinery, monitor processing stages, and ensure output meets quality standards.",
-  "job_desc_j6": "Drive lorries to transport goods across Malaysia, maintain delivery logs, and follow road safety rules."
+  "job_desc_j6": "Drive lorries to transport goods across Malaysia, maintain delivery logs, and follow road safety rules.",
+  "apply_intro": "Fill in the form below to start your Malaysia work visa application. Our team will contact you shortly.",
+  "name": "Full Name",
+  "phone": "Phone Number",
+  "nid_passport": "NID / Passport Number",
+  "age": "Age",
+  "education": "Education",
+  "experience": "Work Experience",
+  "preferred_company": "Preferred Company / Sector",
+  "select": "Select an option",
+  "submit": "Submit Application",
+  "application_submitted": "Application Submitted",
+  "tracking_id_label": "Your tracking ID is:",
+  "submit_another": "Submit Another"
 }
