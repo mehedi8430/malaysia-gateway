@@ -97,5 +97,11 @@
   "submit": "Submit Application",
   "application_submitted": "Application Submitted",
   "tracking_id_label": "Your tracking ID is:",
-  "submit_another": "Submit Another"
+  "submit_another": "Submit Another",
+  "track_intro": "Enter your tracking ID, passport number, or phone number to see the current status of your visa application.",
+  "track_placeholder": "Tracking ID / Passport / Phone",
+  "track_now": "Track Now",
+  "not_found": "No application found. Please check your details and try again.",
+  "client_name": "Applicant",
+  "contact_office_for_update": "For detailed updates, please contact our office."
 }
