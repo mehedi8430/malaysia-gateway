@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #0F766E;
+  --color-primary-dark: #115E59;
+  --color-navy: #1E3A5F;
+  --color-gold: #D97706;
+}
+
 :root {
   color-scheme: light;
 }
