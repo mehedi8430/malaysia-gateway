@@ -11,7 +11,7 @@ const LINKS = [
   { key: "process", href: "/process" },
   { key: "jobs", href: "/jobs" },
   { key: "documents", href: "/documents" },
-  { key: "testimonials", href: "/testimonials" },
+  { key: "apply", href: "/apply" },
   { key: "faq", href: "/faq" },
   { key: "contact", href: "/contact" },
 ];

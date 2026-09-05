@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import TrustBadge from "@/components/TrustBadge";
 import { useLanguage } from "@/hooks/useLanguage";
 import { COMPANIES } from "@/data/companies";
+import { PROCESS_STEPS } from "@/data/process-steps";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -36,6 +37,27 @@ export default function Home() {
         <div className="mt-8 text-center">
           <Link href="/jobs" className="inline-block rounded-full border-2 border-primary px-6 py-2.5 font-semibold text-primary hover:bg-primary hover:text-white">
             {t("view_all_jobs")}
+          </Link>
+        </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-4 py-10">
+        <h2 className="text-center text-2xl font-bold text-slate-800">{t("home_process_title")}</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {PROCESS_STEPS.map((step, i) => (
+            <div key={step.key} className="rounded-xl border border-slate-200 bg-white p-4 flex items-start gap-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white text-sm font-bold">
+                {i + 1}
+              </span>
+              <div>
+                <p className="font-semibold text-slate-800">{t(step.key)}</p>
+                <p className="mt-1 text-xs text-slate-500">{t(step.durationKey)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/process" className="inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:opacity-90">
+            {t("home_process_link")}
           </Link>
         </div>
       </section>

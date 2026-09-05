@@ -4,6 +4,7 @@ import { TrackingProvider } from "@/contexts/TrackingContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import LangSync from "@/components/LangSync";
 
 export const metadata = {
   title: "Malaysia Work Visa Agency",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="bn">
       <body>
         <LanguageProvider>
+          <LangSync />
           <TrackingProvider>
             <Navbar />
             <main className="min-h-screen">{children}</main>

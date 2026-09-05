@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FileText, Clock, CreditCard, CheckCircle2 } from "lucide-react";
+import { FileText, Clock, CreditCard } from "lucide-react";
 import TrustBadge from "@/components/TrustBadge";
 import { useLanguage } from "@/hooks/useLanguage";
 import { PROCESS_STEPS } from "@/data/process-steps";
