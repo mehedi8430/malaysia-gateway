@@ -2,6 +2,8 @@
   "greeting": "Welcome",
   "home": "Home",
   "about": "About Us",
+  "about_mission": "Our mission is to help every Bangladeshi worker secure a government-approved work visa for Malaysia with transparency, honesty, and safety. We provide professional guidance at every step so your journey is smooth and hassle-free.",
+  "license_cert_placeholder": "Our government license and certificates will be shown here",
   "process": "Visa Process",
   "jobs": "Companies & Jobs",
   "apply": "Apply Now",
@@ -145,5 +147,11 @@
   "faq_q6": "How do I track the status of my application?",
   "contact_intro": "Reach out to us with any questions about your Malaysia work visa. Our support team replies quickly.",
   "email_placeholder": "info@malaysiagateway.demo",
-  "map_placeholder": "Map preview will appear here"
+  "map_placeholder": "Map preview will appear here",
+  "gov_approved_heading": "Government Approved",
+  "gov_approved_desc": "A licensed agency approved by the governments of Bangladesh and Malaysia.",
+  "experience_heading": "10+ Years Experience",
+  "experience_desc": "For over a decade, we have successfully helped thousands of Bangladeshi workers abroad.",
+  "team_heading": "Professional Team",
+  "team_desc": "A dedicated team of experts supports you throughout your journey in processing every application."
 }
