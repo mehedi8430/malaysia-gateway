@@ -17,6 +17,7 @@ export default function JobDetailPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <TrustBadge />
       <p className="mt-4 text-sm text-slate-500">{company.name} · {company.location}</p>
+      <p className="mt-1 text-sm text-slate-500">{t("roc_number")}: {company.rocNo || t("roc_not_available")}</p>
       <h1 className="text-3xl font-black text-slate-800">{t(job.titleKey)}</h1>
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         <div className="rounded-lg bg-primary/10 p-3 text-center"><p className="text-xs text-slate-500">{t("salary")}</p><p className="font-bold">{job.salaryRange}</p></div>

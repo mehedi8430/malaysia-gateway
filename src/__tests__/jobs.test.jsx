@@ -3,8 +3,8 @@ import { COMPANIES } from "@/data/companies";
 import bn from "@/locales/bn.json";
 import en from "@/locales/en.json";
 
-test("jobs data has six entries with all required fields", () => {
-  expect(JOBS.length).toBe(6);
+test("jobs data has twelve entries with all required fields", () => {
+  expect(JOBS.length).toBe(12);
   for (const job of JOBS) {
     expect(job).toHaveProperty("id");
     expect(job).toHaveProperty("companyId");

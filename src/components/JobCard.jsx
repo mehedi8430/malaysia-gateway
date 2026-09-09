@@ -15,6 +15,7 @@ export default function JobCard({ job }) {
       </div>
       <h3 className="mt-2 font-bold text-slate-800">{t(job.titleKey)}</h3>
       <p className="text-xs text-slate-500">{t(job.sectorKey)}</p>
+      <p className="mt-2 text-xs text-slate-500">{company.rocNo || t("roc_not_available")}</p>
       <div className="mt-4 space-y-1.5 text-sm">
         <p className="flex items-center gap-2 text-slate-600"><Wallet className="h-4 w-4 text-primary" /> {job.salaryRange}</p>
         <p className="flex items-center gap-2 text-slate-600"><Users className="h-4 w-4 text-primary" /> {t("vacancies")}: {job.vacancies}</p>
