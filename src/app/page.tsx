@@ -1,71 +1,69 @@
-"use client";
-import Link from "next/link";
-import { Users, Award } from "lucide-react";
-import Hero from "@/components/Hero";
-import TrustBadge from "@/components/TrustBadge";
-import { useLanguage } from "@/hooks/useLanguage";
-import { COMPANIES } from "@/data/companies";
-import { PROCESS_STEPS } from "@/data/process-steps";
+import Image from "next/image";
 
 export default function Home() {
-  const { t } = useLanguage();
   return (
-    <div>
-      <Hero />
-      <section className="mx-auto max-w-7xl px-4 py-6 flex flex-wrap items-center gap-4">
-        <TrustBadge />
-        <div className="flex items-center gap-2 text-sm text-slate-500">
-          <Award className="h-5 w-5 text-gold" /> {t("years_experience")}
+    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <Image
+          className="dark:invert h-5 w-[100px]"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={100}
+          height={20}
+          priority
+        />
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+            To get started, edit the{" "}
+            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
+              page.tsx
+            </code>{" "}
+            file.
+          </h1>
+          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            Looking for a starting point or more instructions? Head over to{" "}
+            <a
+              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
+            >
+              Templates
+            </a>{" "}
+            or the{" "}
+            <a
+              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
+            >
+              Learning
+            </a>{" "}
+            center.
+          </p>
         </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <h2 className="text-2xl font-bold text-slate-800">{t("partner_companies")}</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {COMPANIES.map((c) => (
-            <div key={c.id} className="rounded-xl border border-slate-200 bg-white p-4 flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-400">
-                <Users className="h-6 w-6" />
-              </span>
-              <div>
-                <p className="font-semibold text-slate-800">{c.name}</p>
-                <p className="text-xs text-slate-500">{t(c.sectorKey)}</p>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <a
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert h-[14px] w-4"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={16}
+              height={14}
+            />
+            Deploy Now
+          </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Documentation
+          </a>
         </div>
-        <div className="mt-8 text-center">
-          <Link href="/jobs" className="inline-block rounded-full border-2 border-primary px-6 py-2.5 font-semibold text-primary hover:bg-primary hover:text-white">
-            {t("view_all_jobs")}
-          </Link>
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <h2 className="text-center text-2xl font-bold text-slate-800">{t("home_process_title")}</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {PROCESS_STEPS.map((step, i) => (
-            <div key={step.key} className="rounded-xl border border-slate-200 bg-white p-4 flex items-start gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white text-sm font-bold">
-                {i + 1}
-              </span>
-              <div>
-                <p className="font-semibold text-slate-800">{t(step.key)}</p>
-                <p className="mt-1 text-xs text-slate-500">{t(step.durationKey)}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Link href="/process" className="inline-block rounded-full bg-primary px-6 py-3 font-bold text-white hover:opacity-90">
-            {t("home_process_link")}
-          </Link>
-        </div>
-      </section>
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-slate-800">{t("why_choose_us")}</h2>
-          <p className="mt-3 max-w-2xl mx-auto text-slate-600">{t("why_choose_us_desc")}</p>
-        </div>
-      </section>
+      </main>
     </div>
   );
 }

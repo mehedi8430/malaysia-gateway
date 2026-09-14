@@ -1,17 +1,26 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #0F766E;
-  --color-primary-dark: #115E59;
-  --color-navy: #1E3A5F;
-  --color-gold: #D97706;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-:root {
-  color-scheme: light;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 antialiased;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Bengali", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
