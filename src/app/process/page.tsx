@@ -1,19 +1,15 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { PageHero } from "@/components/PageHero";
-import { ProcessSteps } from "@/components/ProcessSteps";
+import Hero from "@/components/home/Hero";
+import HomeFooter from "@/components/home/HomeFooter";
+import HomeHeader from "@/components/home/HomeHeader";
+
 
 export default function ProcessPage() {
   return (
     <>
-      <Header />
+      <HomeHeader />
       <main>
-        <PageHero
-          eyebrow="প্রক্রিয়া"
-          title="শুরু থেকে যাত্রা পর্যন্ত"
-          description="১৫টি নির্দিষ্ট ধাপে আপনার আবেদন এগিয়ে যায়। প্রতিটি পর্যায়ে কী হবে, তা আগে থেকেই জানুন।"
-        />
-        <ProcessSteps full />
+        <Hero/>
+        {/* <ProcessSteps full /> */}
         <section className="page-content shell">
           <div className="prose-block">
             <h2>সময় ও তথ্য</h2>
@@ -25,7 +21,7 @@ export default function ProcessPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <HomeFooter />
     </>
   );
 }

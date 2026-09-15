@@ -1,19 +1,15 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { JobCategoryGrid } from "@/components/JobCategoryGrid";
-import { PageHero } from "@/components/PageHero";
+import Hero from "@/components/home/Hero";
+import HomeFooter from "@/components/home/HomeFooter";
+import HomeHeader from "@/components/home/HomeHeader";
+
 
 export default function JobCategoryPage() {
   return (
     <>
-      <Header />
+      <HomeHeader />
       <main>
-        <PageHero
-          eyebrow="কাজের সুযোগ"
-          title="আপনার দক্ষতার সঠিক বিভাগ"
-          description="আপনার অভিজ্ঞতা ও আগ্রহ অনুযায়ী মালয়েশিয়ার বিভিন্ন খাতে কাজের সুযোগ দেখুন।"
-        />
-        <JobCategoryGrid />
+        <Hero/>
+        {/* <JobCategoryGrid /> */}
         <section className="page-content shell">
           <div className="prose-block">
             <h2>কাজ বাছাইয়ের আগে জানুন</h2>
@@ -25,7 +21,7 @@ export default function JobCategoryPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <HomeFooter />
     </>
   );
 }
