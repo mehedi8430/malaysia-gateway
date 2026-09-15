@@ -8,7 +8,7 @@ export default function JobCategorySection() {
       id="jobs"
       className="relative overflow-hidden bg-linear-to-b from-white to-[#fff8e9] px-5 py-5 lg:px-10"
     >
-      <div className="mx-auto max-w-325">
+      <div className="mx-auto">
         <div className="mb-5 flex flex-col items-center justify-between gap-4 md:flex-row">
           <div>
             <div className="flex gap-4">

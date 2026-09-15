@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[390px] max-w-[1400px] items-center px-6 py-10 lg:px-12">
+      <div className="relative mx-auto flex min-h-100 items-center px-6 py-10 lg:px-12">
         <div className="max-w-150 text-white">
           {/* slope text from left to right */}
           <div className="relative mb-6 inline-block origin-left -rotate-3 transition-transform">

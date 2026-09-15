@@ -30,7 +30,7 @@ export default function ProcessSection() {
       id="process"
       className="bg-linear-to-b from-[#f5fbff] to-white px-5 py-6 lg:px-10"
     >
-      <div className="mx-auto max-w-325">
+      <div className="mx-auto">
         <div className="mb-5">
           <h2 className="text-[38px] font-extrabold leading-none text-[#063d70]">
             Our Process

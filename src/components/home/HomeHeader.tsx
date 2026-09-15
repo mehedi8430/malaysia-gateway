@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { MenuIcon, PhoneIcon } from "@/components/icon";
+import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/icon";
 import { Logo } from "../Logo";
 
 const NAV_ITEMS: [string, string][] = [
@@ -24,7 +24,7 @@ export default function HomeHeader() {
         polygon(0 0, 100% 0, 100% calc(100% - 16px), 0 100%)
       */}
       <div className="bg-[#06345e] pb-3 [clip-path:polygon(0_0,100%_0,100%_calc(100%-16px),0_100%)]">
-        <div className="mx-auto flex h-[78px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
+        <div className="mx-auto flex h-19.5 items-center justify-between px-5 lg:px-10">
           <Link href="#home" className="shrink-0" onClick={() => setMenuOpen(false)}>
             <Logo />
           </Link>
@@ -58,13 +58,17 @@ export default function HomeHeader() {
             onClick={() => setMenuOpen((open) => !open)}
             className="rounded-lg p-2 text-white transition hover:opacity-80 lg:hidden"
           >
-            <MenuIcon className="h-6 w-6" />
+            {menuOpen ? (
+              <CloseIcon className="h-6 w-6" />
+            ) : (
+              <MenuIcon className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-white/10 bg-[#06345e] px-5 pb-6 pt-2 lg:hidden">
+        <nav className="border-t border-white/10 bg-[#06345e] px-5 pb-6 pt-6 lg:hidden -mt-6">
           <ul>
             {NAV_ITEMS.map(([label, href]) => (
               <li key={label} className="text-white transition-colors">

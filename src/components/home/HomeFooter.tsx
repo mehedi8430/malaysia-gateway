@@ -13,7 +13,7 @@ const QUICK_LINKS: { href: string; icon: string; label: string }[] = [
 export default function HomeFooter() {
   return (
     <footer id="contact" className="bg-[#06345e] text-white">
-      <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-7 lg:grid-cols-[1.15fr_1.3fr_1.25fr_0.8fr] lg:px-10">
+      <div className="mx-auto grid gap-8 px-6 py-7 lg:grid-cols-[1.15fr_1.3fr_1.25fr_0.8fr] lg:px-10">
         {/* Logo */}
         <div>
           <Logo />
