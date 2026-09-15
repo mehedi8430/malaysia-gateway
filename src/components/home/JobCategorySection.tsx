@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { jobCategories } from "./data";
 import { MalaysiaFlag } from "./MalaysiaFlag";
+import { Caveat } from "next/font/google";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 
 export default function JobCategorySection() {
   return (
@@ -8,28 +14,64 @@ export default function JobCategorySection() {
       id="jobs"
       className="relative overflow-hidden bg-linear-to-b from-white to-[#fff8e9] px-5 py-5 lg:px-10"
     >
-      <div className="mx-auto">
-        <div className="mb-5 flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="mx-auto space-y-8">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div>
-            <div className="flex gap-4">
-              <MalaysiaFlag className="size-18 rounded-full" />
+            <div className="flex items-center gap-4">
+              <MalaysiaFlag className="size-16 shrink-0 rounded-full sm:size-18" />
 
               <div className="space-y-1">
-                <h2 className="text-[35px] font-extrabold leading-none text-[#073968] sm:text-[43px]">
+                <h2 className="text-[32px] font-extrabold leading-none text-[#073968] sm:text-[43px]">
                   Malaysia <span className="text-[#ef7115]">Job Category</span>
                 </h2>
-                <p className="text-[15px] font-semibold text-[#0b528b]">
+                <p className="text-[14px] font-semibold text-[#0b528b] sm:text-[15px]">
                   আপনার দক্ষতা অনুযায়ী বেছে নিন আপনার পছন্দের কাজ
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="hidden rotate-[-3deg] text-right font-serif text-[21px] font-bold italic text-[#063b6b] md:block">
-            More Jobs
-            <br />
-            <span className="text-[#0b6b9f]">More Opportunities</span>
-            <div className="ml-10 text-[#e33b2d]">↗────────</div>
+          {/* More Jobs Section - Higher Rotation & Matching Airplane */}
+          <div className="hidden items-center gap-3 -mt-4 md:flex">
+            {/* Rotated Text & Underline Wrapper */}
+            <div className="relative origin-right -rotate-8 text-left">
+              <div
+                className={`${caveat.className} text-[24px] font-bold leading-[1.05] tracking-tight text-[#083363] lg:text-[28px]`}
+              >
+                <div>More Jobs</div>
+                <div>More Opportunities</div>
+              </div>
+
+              {/* Curved Red Swoosh Underline */}
+              <svg
+                className="absolute -bottom-2.5 left-0 h-3.5 w-full overflow-visible"
+                viewBox="0 0 240 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M 5 14 Q 120 4, 235 2"
+                  stroke="#DC2626"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+
+            {/* Jet Airplane Silhouette Matching original image angle */}
+            <div className="h-10 w-11 shrink-0 -rotate-12 self-start mt-4">
+              <svg
+                viewBox="0 0 100 100"
+                fill="#083363"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-full w-full drop-shadow-sm"
+              >
+                {/* Main Fuselage & Wings */}
+                <path d="M 92 18 L 62 40 L 22 22 L 14 26 L 42 48 L 22 62 L 12 56 L 6 60 L 18 74 L 30 88 L 34 82 L 28 72 L 48 58 L 74 84 L 80 78 L 66 46 L 94 28 Z" />
+                {/* Engine Pod Detail */}
+                <path d="M 40 68 L 48 74 L 54 70 L 46 64 Z" />
+              </svg>
+            </div>
           </div>
         </div>
 

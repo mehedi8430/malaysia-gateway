@@ -1,17 +1,15 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { PageHero } from "@/components/PageHero";
+import Hero from "@/components/home/Hero";
+import HomeFooter from "@/components/home/HomeFooter";
+import HomeHeader from "@/components/home/HomeHeader";
+
+// TODO: add 25 companies that was connecte with visa agency like medical and other thoing that needs actually for visa processing, training etc
 
 export default function AboutUsPage() {
   return (
     <>
-      <Header />
+      <HomeHeader />
       <main>
-        <PageHero
-          eyebrow="আমাদের পরিচয়"
-          title="বিশ্বাস দিয়ে তৈরি সম্পর্ক"
-          description="Malaysia Work Visa Gateway বাংলাদেশি কর্মীদের জন্য মালয়েশিয়ায় নিরাপদ ও নিয়মতান্ত্রিক কর্মসংস্থানের পথ তৈরি করে।"
-        />
+        <Hero/>
         <section className="page-content shell info-layout">
           <div className="prose-block">
             <h2>
@@ -47,7 +45,7 @@ export default function AboutUsPage() {
           </aside>
         </section>
       </main>
-      <Footer />
+      <HomeFooter />
     </>
   );
 }

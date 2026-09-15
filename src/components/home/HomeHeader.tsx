@@ -6,12 +6,12 @@ import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/icon";
 import { Logo } from "../Logo";
 
 const NAV_ITEMS: [string, string][] = [
-  ["Home", "#home"],
-  ["About Us", "#about"],
-  ["Job Category", "#jobs"],
-  ["Process", "#process"],
-  ["Notice", "#notice"],
-  ["Contact", "#contact"],
+  ["Home", "/"],
+  ["About Us", "/about-us"],
+  ["Job Category", "/#jobs"],
+  ["Process", "/#process"],
+  ["Notice", "/#notice"],
+  ["Contact", "/#contact"],
 ];
 
 export default function HomeHeader() {
@@ -44,7 +44,7 @@ export default function HomeHeader() {
           </nav>
 
           <Link
-            href="#contact"
+            href="/contact"
             className="hidden items-center gap-2 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 px-6 py-3 text-sm font-bold text-[#092c51] shadow-md transition hover:scale-105 md:flex"
           >
             <PhoneIcon className="h-4 w-4" />

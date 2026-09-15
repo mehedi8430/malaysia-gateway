@@ -1,17 +1,14 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { PageHero } from "@/components/PageHero";
+import Hero from "@/components/home/Hero";
+import HomeFooter from "@/components/home/HomeFooter";
+import HomeHeader from "@/components/home/HomeHeader";
+
 
 export default function ContactPage() {
   return (
     <>
-      <Header />
+      <HomeHeader />
       <main>
-        <PageHero
-          eyebrow="যোগাযোগ"
-          title="কথা বলুন আমাদের সঙ্গে"
-          description="আপনার প্রশ্ন, কাজের পছন্দ বা আবেদন সম্পর্কে জানতে অফিসে যোগাযোগ করুন।"
-        />
+        <Hero/>
         <section className="page-content shell info-layout">
           <div className="prose-block">
             <h2>
@@ -51,7 +48,7 @@ export default function ContactPage() {
           </aside>
         </section>
       </main>
-      <Footer />
+      <HomeFooter />
     </>
   );
 }
