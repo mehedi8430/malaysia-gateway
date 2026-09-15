@@ -3,14 +3,12 @@ import { features } from "./data";
 
 const HERO_SKYLINE =
   "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=2000&q=85";
-const HERO_WORKERS =
-  "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=85";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[390px] overflow-hidden bg-[#0071bd]"
+      className="relative min-h-97.5 overflow-hidden bg-[#0071bd]"
     >
       {/* City background */}
       <div className="absolute inset-0">
@@ -61,35 +59,6 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* People on right */}
-      <div className="absolute bottom-0 right-[-20px] hidden h-full w-[48%] lg:block">
-        <div className="relative ml-auto h-[92%] w-[70%]">
-          <Image
-            src={HERO_WORKERS}
-            alt="Workers"
-            fill
-            sizes="(min-width: 1024px) 34vw, 100vw"
-            className="object-cover object-top opacity-95"
-          />
-        </div>
-      </div>
-
-      {/* Malaysian flag */}
-      <div className="absolute right-0 top-0 hidden w-[230px] overflow-hidden rounded-bl-[100%] opacity-95 sm:block">
-        <div className="relative h-[120px]">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "repeating-linear-gradient(to bottom,#d71939 0,#d71939 10px,#fff 10px,#fff 20px)",
-            }}
-          />
-          <div className="absolute left-0 top-0 h-[65px] w-[105px] bg-[#06245c]" />
-          <div className="absolute left-[30px] top-[13px] text-4xl text-yellow-400">★</div>
-          <div className="absolute left-[18px] top-[13px] text-3xl text-white">☾</div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 export const MalaysiaFlag = ({ className = "h-10 w-16" }: { className?: string }) => (
   <div
-    className={`${className} relative overflow-hidden rounded-sm border border-white/40 bg-white`}
+    className={`${className} relative overflow-hidden border border-white/40 bg-white`}
   >
     <div
       className="absolute inset-0"

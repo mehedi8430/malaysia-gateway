@@ -8,20 +8,21 @@ export default function JobCategorySection() {
       id="jobs"
       className="relative overflow-hidden bg-linear-to-b from-white to-[#fff8e9] px-5 py-5 lg:px-10"
     >
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-325">
         <div className="mb-5 flex flex-col items-center justify-between gap-4 md:flex-row">
           <div>
-            <div className="flex items-center gap-4">
-              <MalaysiaFlag className="h-12 w-20" />
+            <div className="flex gap-4">
+              <MalaysiaFlag className="size-18 rounded-full" />
 
-              <h2 className="text-[35px] font-extrabold leading-none text-[#073968] sm:text-[43px]">
-                Malaysia <span className="text-[#ef7115]">Job Category</span>
-              </h2>
+              <div className="space-y-1">
+                <h2 className="text-[35px] font-extrabold leading-none text-[#073968] sm:text-[43px]">
+                  Malaysia <span className="text-[#ef7115]">Job Category</span>
+                </h2>
+                <p className="text-[15px] font-semibold text-[#0b528b]">
+                  আপনার দক্ষতা অনুযায়ী বেছে নিন আপনার পছন্দের কাজ
+                </p>
+              </div>
             </div>
-
-            <p className="ml-[96px] mt-1 text-[15px] font-semibold text-[#0b528b]">
-              আপনার দক্ষতা অনুযায়ী বেছে নিন আপনার পছন্দের কাজ
-            </p>
           </div>
 
           <div className="hidden rotate-[-3deg] text-right font-serif text-[21px] font-bold italic text-[#063b6b] md:block">

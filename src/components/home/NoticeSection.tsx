@@ -41,12 +41,12 @@ export default function NoticeSection() {
           {notices.map((notice, index) => (
             <div
               key={notice.date}
-              className={`grid grid-cols-[170px_1fr] items-start gap-4 py-2.5 ${
+              className={`grid grid-cols-1 items-start gap-2 py-2.5 sm:grid-cols-[170px_1fr] sm:gap-4 ${
                 index !== notices.length - 1 ? "border-b border-[#d9e8f0]" : ""
               }`}
             >
-              <div className="flex h-[34px] items-center gap-2 rounded-full bg-linear-to-r from-[#ffb719] to-[#ffd23f] px-3 font-bold text-[#092f58] shadow-sm">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#073d69] text-white">
+              <div className="flex h-8.5 items-center gap-2 rounded-full bg-linear-to-r from-[#ffb719] to-[#ffd23f] font-bold text-[#092f58] shadow-sm">
+                <span className="flex h-8.5 w-8.5 items-center justify-center rounded-xl bg-[#073d69] text-white">
                   <CalendarIcon className="h-4 w-4" />
                 </span>
                 <span className="whitespace-nowrap text-[13px]">
