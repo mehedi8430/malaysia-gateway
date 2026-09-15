@@ -1,5 +1,11 @@
 import Image from "next/image";
 import { features } from "./data";
+import { Caveat } from "next/font/google";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
 
 const HERO_SKYLINE =
   "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=2000&q=85";
@@ -8,7 +14,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-97.5 overflow-hidden bg-[#0071bd]"
+      /* Added -mt-4 to pull hero up behind the clip-path angle */
+      className="relative -mt-4 min-h-97.5 overflow-hidden bg-[#0071bd]"
     >
       {/* City background */}
       <div className="absolute inset-0">
@@ -25,10 +32,43 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto flex min-h-[390px] max-w-[1400px] items-center px-6 py-10 lg:px-12">
-        <div className="max-w-[600px] text-white">
-          <p className="mb-3 font-serif text-[20px] italic text-white lg:text-[25px]">
-            Your Global Career Starts Here
-          </p>
+        <div className="max-w-150 text-white">
+          {/* slope text from left to right */}
+          <div className="relative mb-6 inline-block origin-left -rotate-3 transition-transform">
+            <p
+              className={`${caveat.className} text-[20px] tracking-tight font-bold text-white drop-shadow-md sm:text-[26px] lg:text-[32px]`}
+            >
+              Your Global Career Starts Here
+            </p>
+
+            {/* Angled curved yellow-to-white underline swoosh */}
+            <svg
+              className="absolute -bottom-2.5 left-0 h-4 w-full overflow-visible"
+              viewBox="0 0 300 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M 5 18 Q 150 2, 295 2"
+                stroke="url(#yellow-white-gradient)"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+              <defs>
+                <linearGradient
+                  id="yellow-white-gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop offset="0%" stopColor="#EAB308" />
+                  <stop offset="65%" stopColor="#FEF08A" />
+                  <stop offset="100%" stopColor="#FFFFFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
 
           <h1 className="text-[42px] font-extrabold leading-[0.95] sm:text-[55px] lg:text-[67px]">
             Work in

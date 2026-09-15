@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GlobeIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icon";
-import { Logo } from "./HomeHeader";
+import { Logo } from "../Logo";
 
 const QUICK_LINKS: { href: string; icon: string; label: string }[] = [
   { href: "#home", icon: "⌂", label: "Home" },

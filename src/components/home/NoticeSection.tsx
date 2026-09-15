@@ -1,5 +1,9 @@
+import Image from "next/image";
 import { CalendarIcon } from "@/components/icon";
 import { notices } from "./data";
+
+const NOTICE_BG_IMAGE =
+  "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80";
 
 export default function NoticeSection() {
   return (
@@ -9,32 +13,42 @@ export default function NoticeSection() {
     >
       <div className="mx-auto grid max-w-325 gap-5 lg:grid-cols-[270px_1fr]">
         {/* Notice intro */}
-        <div className="relative overflow-hidden rounded-2xl border border-[#cce4f3] bg-[#eefaff] p-6 shadow-sm">
-          <div className="flex items-start gap-3">
-            <div className="text-5xl text-red-600">📢</div>
+        <article className="relative flex min-h-[300px] overflow-hidden rounded-2xl border border-[#cce4f3] bg-[#0071bd] shadow-sm">
+          <div className="absolute inset-0">
+            <Image
+              src={NOTICE_BG_IMAGE}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 270px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-r from-[#004a86]/95 via-[#0076be]/70 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
+          </div>
 
-            <div>
-              <h2 className="text-[23px] font-extrabold leading-tight text-[#073968]">
-                Government
-                <br />
-                <span>Notice</span>
-              </h2>
+          <div className="relative z-10 flex flex-col justify-start p-6 text-white">
+            <div className="flex items-start gap-3">
+              <div className="text-5xl">📢</div>
 
-              <p className="text-[17px] font-bold text-[#073968]">
-                (সরকারি তথ্য)
-              </p>
+              <div>
+                <h2 className="text-[23px] font-extrabold leading-tight text-white">
+                  Government
+                  <br />
+                  <span>Notice</span>
+                </h2>
+
+                <p className="text-[17px] font-bold text-yellow-300">
+                  (সরকারি তথ্য)
+                </p>
+              </div>
             </div>
-          </div>
 
-          <p className="relative z-10 mt-7 text-[14px] font-medium leading-6 text-[#143e66]">
-            মালয়েশিয়া সরকার ও সংশ্লিষ্ট কর্তৃপক্ষের নির্দেশনা অনুযায়ী
-            নিয়োগ সংক্রান্ত কর্মসূচির সময়সূচিতে পরিবর্তন হয়েছে:
-          </p>
-
-          <div className="pointer-events-none absolute -bottom-4 left-0 text-[75px] opacity-20">
-            🏙️
+            <p className="mt-5 text-[14px] font-medium leading-6 text-white/90">
+              মালয়েশিয়া সরকার ও সংশ্লিষ্ট কর্তৃপক্ষের নির্দেশনা অনুযায়ী
+              নিয়োগ সংক্রান্ত কর্মসূচির সময়সূচিতে পরিবর্তন হয়েছে:
+            </p>
           </div>
-        </div>
+        </article>
 
         {/* Notice list */}
         <div className="rounded-2xl border border-[#cce4f3] bg-white px-4 py-3 shadow-sm">
