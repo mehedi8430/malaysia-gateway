@@ -1,25 +1,54 @@
-"use client";
-import { Phone, MapPin, Mail, MessageCircle } from "lucide-react";
-import TrustBadge from "@/components/TrustBadge";
-import ContactMap from "@/components/ContactMap";
-import { useLanguage } from "@/hooks/useLanguage";
+import Hero from "@/components/home/Hero";
+import HomeFooter from "@/components/home/HomeFooter";
+import HomeHeader from "@/components/home/HomeHeader";
+
 
 export default function ContactPage() {
-  const { t } = useLanguage();
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
-      <TrustBadge />
-      <h1 className="mt-4 text-3xl font-black text-slate-800">{t("contact")}</h1>
-      <p className="mt-2 text-slate-600">{t("contact_intro")}</p>
-      <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4"><Phone className="h-5 w-5 text-primary" /><span>{t("phone_placeholder")}</span></div>
-          <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4"><Mail className="h-5 w-5 text-primary" /><span>{t("email_placeholder")}</span></div>
-          <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4"><MapPin className="h-5 w-5 text-primary" /><span>{t("address_placeholder")}</span></div>
-          <a href="https://wa.me/8801712345678" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white hover:opacity-90"><MessageCircle className="h-5 w-5" /> {t("whatsapp_us")}</a>
-        </div>
-        <ContactMap />
-      </div>
-    </div>
+    <>
+      <HomeHeader />
+      <main>
+        <Hero/>
+        <section className="page-content shell info-layout">
+          <div className="prose-block">
+            <h2>
+              সঠিক তথ্যের জন্য
+              <br />
+              সরাসরি যোগাযোগ করুন
+            </h2>
+            <p>
+              আমাদের পরামর্শক দল আপনার প্রাথমিক প্রশ্নের উত্তর দিতে এবং পরবর্তী
+              ধাপ বুঝিয়ে দিতে প্রস্তুত। অফিসে আসার আগে ফোন করে সময় জেনে নিন।
+            </p>
+            <div className="contact-box">
+              <h2>অফিস ঠিকানা</h2>
+              <p>
+                হাউস ১২৩, রোড ৫<br />
+                ধানমন্ডি, ঢাকা ১২০৫
+              </p>
+              <p>
+                <a href="tel:+8801712345678">+৮৮০ ১৭১২-৩৪৫৬৭৮</a>
+                <br />
+                <a href="mailto:info@malaysiaworkvisa.com">
+                  info@malaysiaworkvisa.com
+                </a>
+              </p>
+            </div>
+          </div>
+          <aside className="contact-box">
+            <h2>অফিস সময়</h2>
+            <p>
+              শনিবার – বৃহস্পতিবার
+              <br />
+              সকাল ৯:০০ – সন্ধ্যা ৬:০০
+            </p>
+            <span className="footer-rule" />
+            <p>শুক্রবার বন্ধ</p>
+            <p>জরুরি তথ্যের জন্য ফোনে যোগাযোগ করুন।</p>
+          </aside>
+        </section>
+      </main>
+      <HomeFooter />
+    </>
   );
 }
