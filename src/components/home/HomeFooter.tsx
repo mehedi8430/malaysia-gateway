@@ -15,6 +15,7 @@ const QUICK_LINKS: { href: string; icon: string; label: string }[] = [
   { href: "/#jobs", icon: "💼", label: "Job Category" },
   { href: "/#process", icon: "📋", label: "Process" },
   { href: "/#notice", icon: "📅", label: "Notice" },
+  { href: "/track-application", icon: "🔎", label: "Track Application" },
   { href: "/contact", icon: "📞", label: "Contact Us" },
 ];
 
@@ -105,9 +106,8 @@ export default function HomeFooter() {
             <div className="flex items-start gap-3">
               <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
               <div>
-                <div className="font-semibold text-white/70">Contract Number</div>
-                <div className="mt-0.5 font-bold">+880 1712-345678</div>
-                <div className="font-bold">+880 1819-876543</div>
+                <div className="font-semibold text-white/70">Contact Number</div>
+                <div className="mt-0.5 font-bold">+880 1408-090624</div>
               </div>
             </div>
 
@@ -115,8 +115,8 @@ export default function HomeFooter() {
               <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/80" />
               <div>
                 <div className="font-semibold text-white/70">Our Address</div>
-                <div className="mt-0.5 font-medium">House No 123, Road No 5,</div>
-                <div className="font-medium">Dhanmondi, Dhaka-1205, Bangladesh</div>
+                <div className="mt-0.5 font-medium">24/25 Dilkhusa, Motijheel,</div>
+                <div className="font-medium">Dhaka (Shundorban Courier Service)</div>
               </div>
             </div>
 
