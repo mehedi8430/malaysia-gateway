@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Caveat } from "next/font/google";
 import { GlobeIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icon";
 import { Logo } from "../Logo";
+import OfficeMap from "./OfficeMap";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -9,11 +10,12 @@ const caveat = Caveat({
 });
 
 const QUICK_LINKS: { href: string; icon: string; label: string }[] = [
-  { href: "#home", icon: "🏠", label: "Home" },
-  { href: "#about", icon: "👥", label: "About Us" },
-  { href: "#jobs", icon: "💼", label: "Job Category" },
-  { href: "#notice", icon: "📅", label: "Notice" },
-  { href: "#contact", icon: "📞", label: "Contact Us" },
+  { href: "/#home", icon: "🏠", label: "Home" },
+  { href: "/about", icon: "👥", label: "About Us" },
+  { href: "/#jobs", icon: "💼", label: "Job Category" },
+  { href: "/#process", icon: "📋", label: "Process" },
+  { href: "/#notice", icon: "📅", label: "Notice" },
+  { href: "/contact", icon: "📞", label: "Contact Us" },
 ];
 
 export default function HomeFooter() {
@@ -139,24 +141,7 @@ export default function HomeFooter() {
         {/* Column 3: Office Map */}
         <div className="border-t border-white/15 pt-4 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
           <h3 className="mb-2 text-[16px] font-bold text-white">অফিস লোকেশন</h3>
-
-          <div className="relative h-[125px] overflow-hidden rounded-xl border border-white/20 bg-[#e5eff8] shadow-inner">
-            {/* Map Grid background visual */}
-            <div className="absolute inset-0 opacity-40">
-              <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rotate-6">
-                <div className="absolute left-0 top-[40px] h-[3px] w-full bg-blue-300" />
-                <div className="absolute left-0 top-[90px] h-[2px] w-full bg-blue-200" />
-                <div className="absolute left-[60px] top-0 h-full w-[3px] bg-blue-300" />
-                <div className="absolute left-[150px] top-0 h-full w-[2px] bg-blue-200" />
-              </div>
-            </div>
-
-            {/* Red Pin & White Callout Tag */}
-            <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[12px] font-extrabold text-[#06345e] shadow-md">
-              <MapPinIcon className="h-4 w-4 fill-red-600 text-red-600" />
-              <span>Our Office</span>
-            </div>
-          </div>
+          <OfficeMap />
         </div>
 
         {/* Column 4: Quick Links */}
