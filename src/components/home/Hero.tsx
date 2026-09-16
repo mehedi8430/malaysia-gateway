@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { features } from "./data";
 import { Caveat } from "next/font/google";
 
@@ -83,6 +84,19 @@ export default function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
+            <button className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-5 py-3 text-sm font-bold text-[#06345e] shadow-lg transition hover:-translate-y-0.5 hover:bg-yellow-300">
+              <Link href="/track-application">
+                Track Your Application <span aria-hidden="true">→</span>
+              </Link>
+            </button>
+            <button className="inline-flex items-center gap-2 rounded-full border border-white/70 px-5 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-[#06345e]">
+              <Link href="/contact" className="">
+                Talk to an Advisor
+              </Link>
+            </button>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
             {features.map((feature) => (
               <div
                 key={feature.title}

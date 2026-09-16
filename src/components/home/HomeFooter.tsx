@@ -15,6 +15,7 @@ const QUICK_LINKS: { href: string; icon: string; label: string }[] = [
   { href: "/#jobs", icon: "💼", label: "Job Category" },
   { href: "/#process", icon: "📋", label: "Process" },
   { href: "/#notice", icon: "📅", label: "Notice" },
+  { href: "/track-application", icon: "🔎", label: "Track Application" },
   { href: "/contact", icon: "📞", label: "Contact Us" },
 ];
 
