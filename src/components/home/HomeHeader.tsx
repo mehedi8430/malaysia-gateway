@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/icon";
 import { Logo } from "../Logo";
 
@@ -11,11 +12,31 @@ const NAV_ITEMS: [string, string][] = [
   ["Job Category", "/#jobs"],
   ["Process", "/#process"],
   ["Notice", "/#notice"],
-  ["Contact", "/#contact"],
+  ["Contact", "/contact"],
 ];
 
 export default function HomeHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hash, setHash] = useState("");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    window.addEventListener("popstate", updateHash);
+    return () => {
+      window.removeEventListener("hashchange", updateHash);
+      window.removeEventListener("popstate", updateHash);
+    };
+  }, [pathname]);
+
+  const isActive = (href: string) => pathname + hash === href;
+
+  const navClick = (href: string) => {
+    setMenuOpen(false);
+    setHash(href.includes("#") ? href.slice(href.indexOf("#")) : "");
+  };
 
   return (
     <header className="sticky top-0 z-50 drop-shadow-lg">
@@ -34,10 +55,15 @@ export default function HomeHeader() {
               <span key={label} className="py-7 text-white transition-colors">
                 <Link
                   href={href}
+                  onClick={() => navClick(href)}
                   className="group relative text-[14px] font-medium"
                 >
                   {label}
-                  <span className="absolute inset-x-0 -bottom-1.5 h-0.5 scale-x-0 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100" />
+                  <span
+                    className={`absolute inset-x-0 -bottom-1.5 h-0.5 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100 ${
+                      isActive(href) ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
                 </Link>
               </span>
             ))}
@@ -74,17 +100,21 @@ export default function HomeHeader() {
               <li key={label} className="text-white transition-colors">
                 <Link
                   href={href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => navClick(href)}
                   className="group relative block py-3 text-[15px] font-medium"
                 >
                   {label}
-                  <span className="absolute inset-x-0 bottom-2 h-0.5 w-0 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
+                  <span
+                    className={`absolute inset-x-0 bottom-2 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full ${
+                      isActive(href) ? "w-full" : "w-0"
+                    }`}
+                  />
                 </Link>
               </li>
             ))}
           </ul>
           <Link
-            href="#contact"
+            href="/contact"
             onClick={() => setMenuOpen(false)}
             className="mt-2 flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 px-6 py-2.5 text-sm font-bold text-[#092c51] shadow-md"
           >
