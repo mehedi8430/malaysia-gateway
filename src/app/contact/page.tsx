@@ -6,9 +6,9 @@ import { MailIcon, MapPinIcon, PhoneIcon } from "@/components/icon";
 const CONTACT_CHANNELS = [
   {
     label: "ফোনে কথা বলুন",
-    value: "+৮৮০ ১৭১২-৩৪৫৬৭৮",
+    value: "+৮৮০ ১৪০৮-০৯০৬২৪",
     detail: "সকাল ৯:০০ – সন্ধ্যা ৬:০০",
-    href: "tel:+8801712345678",
+    href: "tel:+8801408090624",
     icon: PhoneIcon,
   },
   {
@@ -83,8 +83,8 @@ export default function ContactPage() {
                   <MapPinIcon className="mt-1 h-5 w-5 shrink-0 text-cyan-700" />
                   <div>
                     <h2 className="text-xl font-bold text-[#102d4d]">আমাদের অফিস</h2>
-                    <p className="mt-3 text-sm leading-7 text-slate-500">হাউস ১২৩, রোড ৫<br />ধানমন্ডি, ঢাকা ১২০৫</p>
-                    <a className="mt-4 inline-block text-xs font-bold text-cyan-700 underline decoration-slate-300 underline-offset-4" href="https://www.google.com/maps/search/?api=1&query=House+123,+Road+5,+Dhanmondi,+Dhaka-1205,+Bangladesh">ম্যাপে পথ দেখুন →</a>
+                    <p className="mt-3 text-sm leading-7 text-slate-500">২৪/২৫ দিলখুসা, মোটিজিল<br />ঢাকা (শুন্দরবান কুরিয়ার সার্ভিস)</p>
+                    <a className="mt-4 inline-block text-xs font-bold text-cyan-700 underline decoration-slate-300 underline-offset-4" href="https://www.google.com/maps/search/?api=1&query=24/25+Dilkhusa,+Motijheel,+Dhaka,+Bangladesh">ম্যাপে পথ দেখুন →</a>
                   </div>
                 </div>
                 <div className="mt-7 border-t border-slate-300 pt-5 text-sm leading-7 text-slate-500"><strong className="text-[#102d4d]">অফিস সময়</strong><br />শনিবার – বৃহস্পতিবার, সকাল ৯:০০ – সন্ধ্যা ৬:০০<br /><span className="text-xs text-slate-400">শুক্রবার বন্ধ</span></div>

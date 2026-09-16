@@ -65,7 +65,7 @@ export default function ProcessSection() {
               <React.Fragment key={step.number}>
                 {/* Process Card Container */}
                 <div
-                  className={`relative flex h-110 flex-col overflow-hidden rounded-3xl border-2 ${colors.border} bg-white shadow-md`}
+                  className={`relative flex h-100 flex-col overflow-hidden rounded-3xl border-2 ${colors.border} bg-white shadow-md`}
                 >
                   {/* Top Header Bar */}
                   <div
@@ -79,7 +79,7 @@ export default function ProcessSection() {
                     </div>
 
                     {/* Header Title */}
-                    <h3 className="text-[22px] font-extrabold leading-tight tracking-tight sm:text-[20px]">
+                    <h3 className="text-[22px] font-extrabold leading-tight tracking-tight sm:text-[18px]">
                       {step.title}
                     </h3>
                   </div>
@@ -98,7 +98,7 @@ export default function ProcessSection() {
                         {step.items.map((item) => (
                           <div
                             key={item}
-                            className="flex items-start gap-2 text-[16px] font-bold leading-snug text-[#082952]"
+                            className="flex items-start gap-2 text-[14px] font-bold leading-snug text-[#082952]"
                           >
                             <span
                               className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${colors.checkBg} text-white`}

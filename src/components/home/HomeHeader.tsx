@@ -12,7 +12,7 @@ const NAV_ITEMS: [string, string][] = [
   ["Job Category", "/#jobs"],
   ["Process", "/#process"],
   ["Notice", "/#notice"],
-  ["Contact", "/contact"],
+  [" Track Application", "/track-application"],
 ];
 
 export default function HomeHeader() {
@@ -46,7 +46,11 @@ export default function HomeHeader() {
       */}
       <div className="bg-[#06345e] pb-3 [clip-path:polygon(0_0,100%_0,100%_calc(100%-16px),0_100%)]">
         <div className="mx-auto flex h-19.5 items-center justify-between px-5 lg:px-10">
-          <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
+          <Link
+            href="/"
+            className="shrink-0"
+            onClick={() => setMenuOpen(false)}
+          >
             <Logo />
           </Link>
 
@@ -70,11 +74,11 @@ export default function HomeHeader() {
           </nav>
 
           <Link
-            href="/track-application"
+            href="/contact"
             className="hidden items-center gap-2 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 px-6 py-3 text-sm font-bold text-[#092c51] shadow-md transition hover:scale-105 md:flex"
           >
             <PhoneIcon className="h-4 w-4" />
-            Track Application
+            Contact Us
           </Link>
 
           <button
