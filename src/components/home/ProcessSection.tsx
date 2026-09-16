@@ -115,7 +115,7 @@ export default function ProcessSection() {
                     <div className="relative mt-4 h-90 w-full overflow-hidden rounded-b-[18px]">
                       <Image
                         src={step.image || PLACEHOLDER_IMAGES[index]}
-                        alt={step.title}
+                        alt={step.alt}
                         fill
                         sizes="(max-width: 1024px) 100vw, 380px"
                         className="object-cover object-bottom"

@@ -36,6 +36,7 @@ export const processSteps = [
   {
     number: "1",
     title: "অনলাইন নিবন্ধন",
+    alt: "অনলাইন নিবন্ধন",
     color: "green",
     icon: <DocumentIcon className="h-12 w-12" />,
     items: ["নথিপত্র জমা", "পাসপোর্ট ভেরিফিকেশন", "TTC ট্রেনিং", "মেডিকেল ফিটনেস", "BMET নিবন্ধন", "পুলিশ ক্লিয়ারেন্স"],
@@ -44,6 +45,7 @@ export const processSteps = [
   {
     number: "2",
     title: <>কোম্পানি আবেদন<span className="block text-[16px]">(Malaysia)</span></>,
+    alt: "কোম্পানি আবেদন (Malaysia)",
     color: "blue",
     icon: <BuildingIcon className="h-12 w-12" />,
     items: ["ডকুমেন্টস সাবমিশন", "অফার লেটার", "এপ্রুভড ওয়ার্ক ভিসা", "ভিসা প্রসেসিং"],
@@ -52,6 +54,7 @@ export const processSteps = [
   {
     number: "3",
     title: "ভিসা এরাইভাল",
+    alt: "ভিসা এরাইভাল",
     color: "purple",
     icon: <PlaneIcon className="h-12 w-12" />,
     items: ["BIOMETRIC Finger Print Registration.", "Ticketing"],
