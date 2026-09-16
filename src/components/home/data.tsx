@@ -39,8 +39,7 @@ export const processSteps = [
     color: "green",
     icon: <DocumentIcon className="h-12 w-12" />,
     items: ["নথিপত্র জমা", "পাসপোর্ট ভেরিফিকেশন", "TTC ট্রেনিং", "মেডিকেল ফিটনেস", "BMET নিবন্ধন", "পুলিশ ক্লিয়ারেন্স"],
-    image: "https://images.unsplash.com/photo-1544099858-39926c0f4fd4?auto=format&fit=crop&w=800&q=80",
-    bottomText: "PASSPORT",
+    image: "",
   },
   {
     number: "2",
@@ -48,8 +47,7 @@ export const processSteps = [
     color: "blue",
     icon: <BuildingIcon className="h-12 w-12" />,
     items: ["ডকুমেন্টস সাবমিশন", "অফার লেটার", "এপ্রুভড ওয়ার্ক ভিসা", "ভিসা প্রসেসিং"],
-    image: "https://images.unsplash.com/photo-1567449303078-57ad995bd17b?auto=format&fit=crop&w=800&q=80",
-    bottomText: "VISA APPLICATION",
+    image: "",
   },
   {
     number: "3",
@@ -57,7 +55,6 @@ export const processSteps = [
     color: "purple",
     icon: <PlaneIcon className="h-12 w-12" />,
     items: ["BIOMETRIC Finger Print Registration.", "Ticketing"],
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
-    bottomText: "PASSPORT",
+    image: "",
   },
 ];

@@ -1,26 +1,42 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRightIcon, CheckIcon } from "@/components/icon";
+import { CheckIcon } from "@/components/icon";
 import { processSteps } from "./data";
+
+// Placeholder background images for each step corresponding to the design
+const PLACEHOLDER_IMAGES = [
+  "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80",
+];
 
 const COLORS = {
   green: {
-    header: "from-[#008f42] to-[#00a448]",
-    border: "border-[#009a4b]",
-    number: "bg-[#079b4a]",
-    icon: "text-[#008d45]",
+    bgHeader: "bg-[#057d38]",
+    border: "border-[#057d38]",
+    textHeader: "text-white",
+    numberBg: "bg-white",
+    numberText: "text-[#057d38]",
+    checkBg: "bg-[#057d38]",
+    iconColor: "text-[#057d38]",
   },
   blue: {
-    header: "from-[#008ad0] to-[#0878c6]",
-    border: "border-[#0786cf]",
-    number: "bg-[#078bd0]",
-    icon: "text-[#078bd0]",
+    bgHeader: "bg-[#0070c0]",
+    border: "border-[#0070c0]",
+    textHeader: "text-white",
+    numberBg: "bg-white",
+    numberText: "text-[#0070c0]",
+    checkBg: "bg-[#0070c0]",
+    iconColor: "text-[#0070c0]",
   },
   purple: {
-    header: "from-[#7c12ae] to-[#8619c7]",
-    border: "border-[#7612aa]",
-    number: "bg-[#7913ac]",
-    icon: "text-[#7913ac]",
+    bgHeader: "bg-[#6b21a8]",
+    border: "border-[#6b21a8]",
+    textHeader: "text-white",
+    numberBg: "bg-white",
+    numberText: "text-[#6b21a8]",
+    checkBg: "bg-[#6b21a8]",
+    iconColor: "text-[#6b21a8]",
   },
 } as const;
 
@@ -28,61 +44,66 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="bg-linear-to-b from-[#f5fbff] to-white px-5 py-6 lg:px-10"
+      className="bg-linear-to-b from-[#f5fbff] to-white px-5 py-8 lg:px-10"
     >
       <div className="mx-auto">
-        <div className="mb-5">
-          <h2 className="text-[38px] font-extrabold leading-none text-[#063d70]">
+        <div className="mb-6">
+          <h2 className="text-[34px] font-extrabold leading-none text-[#063d70] sm:text-[40px]">
             Our Process
           </h2>
-          <p className="mt-1 text-[16px] font-semibold text-[#0b528b]">
+          <p className="mt-1 text-[15px] font-semibold text-[#0b528b] sm:text-[16px]">
             সহজ ও স্বচ্ছ প্রক্রিয়ায় আপনার মালয়েশিয়া যাত্রা
           </p>
         </div>
 
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_40px_1fr_40px_1fr] lg:items-center">
+        <div className="grid gap-6 lg:grid-cols-[1fr_24px_1fr_24px_1fr] lg:items-center">
           {processSteps.map((step, index) => {
             const colors =
               COLORS[step.color as keyof typeof COLORS] ?? COLORS.green;
 
             return (
               <React.Fragment key={step.number}>
+                {/* Process Card Container */}
                 <div
-                  className={`relative overflow-hidden rounded-2xl border-[3px] ${colors.border} bg-white shadow-md`}
+                  className={`relative flex h-110 flex-col overflow-hidden rounded-3xl border-2 ${colors.border} bg-white shadow-md`}
                 >
-                  {/* Number */}
+                  {/* Top Header Bar */}
                   <div
-                    className={`absolute left-[-3px] top-[-3px] z-20 flex h-[70px] w-[70px] items-center justify-center rounded-br-[38px] rounded-tl-[15px] ${colors.number} text-[40px] font-extrabold text-white`}
+                    className={`${colors.bgHeader} flex items-center gap-3 px-4 py-3 text-white`}
                   >
-                    {step.number}
-                  </div>
+                    {/* Circle Number */}
+                    <div
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${colors.numberBg} ${colors.numberText} text-[26px] font-black shadow-inner`}
+                    >
+                      {step.number}
+                    </div>
 
-                  {/* Header */}
-                  <div
-                    className={`bg-linear-to-r ${colors.header} min-h-[72px] px-5 pb-3 pt-4 pl-[85px] text-white`}
-                  >
-                    <h3 className="text-[21px] font-extrabold leading-tight">
+                    {/* Header Title */}
+                    <h3 className="text-[22px] font-extrabold leading-tight tracking-tight sm:text-[20px]">
                       {step.title}
                     </h3>
                   </div>
 
-                  {/* Content */}
-                  <div className="relative min-h-[330px] overflow-hidden bg-white">
-                    <div className="relative z-10 flex gap-4 px-6 py-5">
-                      <div className={`${colors.icon} shrink-0`}>
+                  {/* Body Content */}
+                  <div className="relative flex flex-1 flex-col justify-between overflow-hidden">
+                    {/* List Items and Left Icon */}
+                    <div className="relative z-10 flex gap-3 p-4">
+                      {/* Left Side Category Icon */}
+                      <div className={`${colors.iconColor} pt-1 shrink-0`}>
                         {step.icon}
                       </div>
 
-                      <div className="space-y-2">
+                      {/* Checklist Items */}
+                      <div className="space-y-2.5 pt-0.5">
                         {step.items.map((item) => (
                           <div
                             key={item}
-                            className="flex items-start gap-2 text-[14px] font-semibold leading-5 text-[#254768]"
+                            className="flex items-start gap-2 text-[16px] font-bold leading-snug text-[#082952]"
                           >
                             <span
-                              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${colors.number} text-white`}
+                              className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${colors.checkBg} text-white`}
                             >
-                              <CheckIcon className="h-3 w-3" />
+                              <CheckIcon className="h-2.5 w-2.5 stroke-3" />
                             </span>
                             <span>{item}</span>
                           </div>
@@ -90,27 +111,27 @@ export default function ProcessSection() {
                       </div>
                     </div>
 
-                    {/* Bottom image */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[145px]">
+                    {/* Bottom Image Container with Gradient Fade */}
+                    <div className="relative mt-4 h-90 w-full overflow-hidden rounded-b-[18px]">
                       <Image
-                        src={step.image}
-                        alt=""
+                        src={step.image || PLACEHOLDER_IMAGES[index]}
+                        alt={step.title}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 300px"
-                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 380px"
+                        className="object-cover object-bottom"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-white/10 via-white/40 to-white" />
-
-                      <div className="absolute bottom-8 left-7 rotate-[-8deg] bg-white/85 px-4 py-1.5 text-[18px] font-bold tracking-wide text-[#172f46] shadow-sm">
-                        {step.bottomText}
-                      </div>
+                      {/* Top Fade Gradient overlay to blend seamlessly into white card background */}
+                      <div className="absolute inset-0 bg-linear-to-b from-white via-white/40 to-transparent" />
                     </div>
                   </div>
                 </div>
 
+                {/* Double Arrow Connector between steps */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden items-center justify-center text-[#0870a9] lg:flex">
-                    <ArrowRightIcon className="h-9 w-9 stroke-[3]" />
+                  <div className="hidden items-center justify-center font-bold text-[#0070c0] lg:flex">
+                    <span className="text-2xl font-black tracking-tighter">
+                      »
+                    </span>
                   </div>
                 )}
               </React.Fragment>
