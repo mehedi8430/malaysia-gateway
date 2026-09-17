@@ -160,7 +160,7 @@ export default function ContactPage() {
                   <p className="mt-3 text-sm leading-7 text-slate-500">
                     ২৪/২৫ দিলখুসা, মতিঝিল,
                     <br />
-                    ঢাকা (শুন্দরবান কুরিয়ার সার্ভিস)
+                    ঢাকা (সুন্দরবন কুরিয়ার সার্ভিস)
                   </p>
                   <a
                     className="mt-4 inline-block text-xs font-bold text-cyan-700 underline decoration-slate-300 underline-offset-4"

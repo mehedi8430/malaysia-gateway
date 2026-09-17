@@ -1,0 +1,91 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Define Prisma schema 
+enum JobCategory {
+  CONSTRUCTION
+  FACTORY
+  AGRICULTURE
+  HOSPITALITY
+  CAREGIVER
+  HOUSEKEEPING
+  OTHER
+}
+
+enum OverallStatus {
+  IN_PROGRESS
+  COMPLETED
+  ON_HOLD
+}
+
+enum StepStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum AdminRole {
+  ADMIN
+  STAFF
+}
+
+model Client {
+  id             String        @id @default(uuid())
+  trackingId     String        @unique @map("tracking_id")
+  fullName       String        @map("full_name")
+  phone          String
+  passportNumber String        @map("passport_number")
+  jobCategory    JobCategory   @map("job_category")
+  photoUrl       String?       @map("photo_url")
+  overallStatus  OverallStatus @default(IN_PROGRESS) @map("overall_status")
+  createdAt      DateTime      @default(now()) @map("created_at")
+
+  steps ClientStepStatus[]
+
+  @@map("clients")
+}
+
+model ProcessStep {
+  id         String   @id @default(uuid())
+  stepNumber Int      @unique @map("step_number")
+  nameBn     String   @map("name_bn")
+  nameEn     String   @map("name_en")
+  hasFee     Boolean  @default(false) @map("has_fee")
+  feeAmount  Int?     @map("fee_amount")
+
+  clientStatuses ClientStepStatus[]
+
+  @@map("process_steps")
+}
+
+model ClientStepStatus {
+  id           String     @id @default(uuid())
+  clientId     String     @map("client_id")
+  stepId       String     @map("step_id")
+  status       StepStatus @default(PENDING)
+  completedAt  DateTime?  @map("completed_at")
+  internalNote String?    @map("internal_note")
+
+  client Client      @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  step   ProcessStep @relation(fields: [stepId], references: [id], onDelete: Cascade)
+
+  @@unique([clientId, stepId])
+  @@map("client_step_statuses")
+}
+
+model AdminUser {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  name         String
+  role         AdminRole @default(ADMIN)
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  @@map("admin_users")
+}
