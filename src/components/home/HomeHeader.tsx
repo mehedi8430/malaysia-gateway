@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/icon";
 import { Logo } from "../Logo";
 
@@ -12,13 +12,39 @@ const NAV_ITEMS: [string, string][] = [
   ["Job Category", "/#jobs"],
   ["Process", "/#process"],
   ["Notice", "/#notice"],
-  [" Track Application", "/track-application"],
+  ["Track Application", "/track-application"],
 ];
 
 export default function HomeHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
   const [hash, setHash] = useState("");
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    closeTimeoutRef.current = setTimeout(() => setMenuMounted(false), 600);
+  };
+
+  const toggleMenu = () => {
+    if (menuOpen) {
+      closeMenu();
+    } else {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+      setMenuMounted(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setMenuOpen(true));
+      });
+    }
+  };
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
@@ -34,7 +60,7 @@ export default function HomeHeader() {
   const isActive = (href: string) => pathname + hash === href;
 
   const navClick = (href: string) => {
-    setMenuOpen(false);
+    closeMenu();
     setHash(href.includes("#") ? href.slice(href.indexOf("#")) : "");
   };
 
@@ -49,7 +75,7 @@ export default function HomeHeader() {
           <Link
             href="/"
             className="shrink-0"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeMenu}
           >
             <Logo />
           </Link>
@@ -85,7 +111,7 @@ export default function HomeHeader() {
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
+            onClick={toggleMenu}
             className="rounded-lg p-2 text-white transition hover:opacity-80 lg:hidden"
           >
             {menuOpen ? (
@@ -97,11 +123,29 @@ export default function HomeHeader() {
         </div>
       </div>
 
-      {menuOpen && (
-        <nav className="border-t border-white/10 bg-[#06345e] px-5 pb-6 pt-6 lg:hidden -mt-6">
+      {menuMounted && (
+        <nav
+          aria-hidden={!menuOpen}
+          inert={!menuOpen}
+          className={`-mt-6 border-t border-white/10 bg-[#06345e] px-5 pb-6 pt-6 transition-all duration-300 ease-out lg:hidden ${
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+          }`}
+        >
           <ul>
-            {NAV_ITEMS.map(([label, href]) => (
-              <li key={label} className="text-white transition-colors">
+            {NAV_ITEMS.map(([label, href], i) => (
+              <li
+                key={label}
+                style={{
+                  transitionDelay: menuOpen
+                    ? `${i * 60}ms`
+                    : `${(NAV_ITEMS.length - i) * 60}ms`,
+                }}
+                className={`text-white transition-all duration-200 ease-out ${
+                  menuOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-1 opacity-0"
+                }`}
+              >
                 <Link
                   href={href}
                   onClick={() => navClick(href)}
@@ -118,12 +162,17 @@ export default function HomeHeader() {
             ))}
           </ul>
           <Link
-            href="/track-application"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 px-6 py-2.5 text-sm font-bold text-[#092c51] shadow-md"
+            href="/contact"
+            onClick={closeMenu}
+            style={{
+              transitionDelay: menuOpen ? `${NAV_ITEMS.length * 60}ms` : "0ms",
+            }}
+            className={`mt-2 flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 px-6 py-2.5 text-sm font-bold text-[#092c51] shadow-md transition-all duration-200 ease-out ${
+              menuOpen ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+            }`}
           >
             <PhoneIcon className="h-4 w-4" />
-            Track Application
+            Contact Us
           </Link>
         </nav>
       )}
