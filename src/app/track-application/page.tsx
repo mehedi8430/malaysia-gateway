@@ -27,7 +27,7 @@ export default async function TrackApplicationPage({
       <main>
         <TrackHero />
         <TrackSearch initialState={initialState} />
-        <ProcessMap />
+        {/* <ProcessMap /> */}
         <HelpBanner />
       </main>
       <HomeFooter />

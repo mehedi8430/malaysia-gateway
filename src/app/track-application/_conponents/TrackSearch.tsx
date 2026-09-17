@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { ArrowRightIcon, CheckIcon, DocumentIcon } from "@/components/icon";
 import { lookupApplication } from "@/app/track-application/actions";
 import type { LookupState, LookupSuccess } from "@/lib/tracking";
@@ -19,6 +19,15 @@ export default function TrackSearch({
     lookupApplication,
     initialState,
   );
+
+  const resultRef = useRef<HTMLDivElement>(null);
+  const hasSubmitted = useRef(false);
+
+  useEffect(() => {
+    if (hasSubmitted.current && state) {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [state]);
 
   const result: LookupSuccess | null =
     state && "steps" in state ? state : null;
@@ -42,7 +51,13 @@ export default function TrackSearch({
               আপনার রসিদ বা নিবন্ধন কাগজে থাকা আইডি ব্যবহার করুন। উদাহরণ:
               MWVG-2026-0001
             </p>
-            <form action={formAction} className="mt-7 grid gap-5 sm:grid-cols-2">
+            <form
+              action={formAction}
+              onSubmit={() => {
+                hasSubmitted.current = true;
+              }}
+              className="mt-7 grid gap-5 sm:grid-cols-2"
+            >
               <label className="text-xs font-bold text-[#102d4d]">
                 ট্র্যাকিং আইডি
                 <input
@@ -105,14 +120,16 @@ export default function TrackSearch({
         </div>
       </section>
 
-      {result && <TrackResult state={result} />}
-      {error && (
-        <div className="mx-auto mt-8 max-w-6xl px-5 sm:px-10 lg:px-20">
-          <p className="border border-red-200 bg-red-50 p-4 text-sm font-bold text-red-700">
-            {error}
-          </p>
-        </div>
-      )}
+      <div ref={resultRef} className="scroll-mt-28">
+        {result && <TrackResult state={result} />}
+        {error && (
+          <div className="mx-auto mt-8 max-w-6xl px-5 sm:px-10 lg:px-20">
+            <p className="border border-red-200 bg-red-50 p-4 text-sm font-bold text-red-700">
+              {error}
+            </p>
+          </div>
+        )}
+      </div>
     </>
   );
 }
