@@ -14,7 +14,7 @@ export const features = [
 export const jobCategories = [
   { title: "Construction", bangla: "নির্মাণ শিল্প", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80", icon: "♜" },
   { title: "Factory Worker", bangla: "কারখানা শ্রমিক", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80", icon: "◈" },
-  { title: "Agriculture", bangla: "কৃষি কাজ", image: "https://images.unsplash.com/photo-1523742811167-5f35c8a1e1d2?auto=format&fit=crop&w=600&q=80", icon: "♧" },
+  { title: "Agriculture", bangla: "কৃষি কাজ", image: "https://images.unsplash.com/photo-1594771804886-a933bb2d609b?q=80&w=882&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", icon: "♧" },
   { title: "Hospitality", bangla: "হোটেল/রেস্তোরাঁ", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80", icon: "♨" },
   { title: "Caregiver", bangla: "সেবাদান", image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=80", icon: "♧" },
   { title: "Housekeeping", bangla: "হাউসকিপিং", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80", icon: "▣" },
